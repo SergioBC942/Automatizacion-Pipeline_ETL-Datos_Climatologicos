@@ -6,9 +6,6 @@ pandas==2.3.3
 psycopg==3.3.5
 dotenv==0.9.9
 
-##Base de datos
-
-
 ## APP:
 altair==6.0.0
 pandas==2.3.3
