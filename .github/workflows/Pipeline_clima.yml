@@ -4,7 +4,7 @@ name: Pipeline ETL Clima
 on:
   # Ejecución automática diaria
   schedule:
-  - cron: "15 */4 * * *"
+  - cron: "*/5 * * * *"
     timezone: "America/Mexico_City"
 
   # Permite ejecutarlo manualmente desde GitHub
