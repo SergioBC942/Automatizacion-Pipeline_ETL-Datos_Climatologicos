@@ -2,10 +2,10 @@
 name: Pipeline ETL Clima
 
 on:
-  # Ejecución automática diaria
+  # Ejecución automática
   schedule:
-  - cron: "*/5 * * * *"
-    timezone: "America/Mexico_City"
+    - cron: "*/5 * * * *"
+      timezone: "America/Mexico_City"
 
   # Permite ejecutarlo manualmente desde GitHub
   workflow_dispatch:
@@ -24,7 +24,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-
       # Preparar Python
       - name: Set up Python
         uses: actions/setup-python@v7
@@ -32,13 +31,11 @@ jobs:
           python-version: "3.11"
           cache: "pip"
 
-
       # Instalar dependencias
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
 
       # Ejecutar pipeline
       - name: Run Pipeline Clima
