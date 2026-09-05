@@ -1,0 +1,47 @@
+#Nombre
+name: Pipeline ETL Clima
+
+on:
+  # Ejecución automática diaria
+  schedule:
+  - cron: "15 */4 * * *"
+    timezone: "America/Mexico_City"
+
+  # Permite ejecutarlo manualmente desde GitHub
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run-pipeline:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Descargar el repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+
+      # Preparar Python
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+
+      # Instalar dependencias
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+
+      # Ejecutar pipeline
+      - name: Run weather ETL pipeline
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python src/pipeline.py
