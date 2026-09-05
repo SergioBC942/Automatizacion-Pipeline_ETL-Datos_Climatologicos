@@ -41,7 +41,7 @@ jobs:
 
 
       # Ejecutar pipeline
-      - name: Run weather ETL pipeline
+      - name: Run Pipeline Clima
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: python src/pipeline.py
+        run: python Codigo_ETL/Código_Pipeline.py
