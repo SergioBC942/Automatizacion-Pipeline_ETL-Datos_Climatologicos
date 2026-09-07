@@ -18,7 +18,10 @@ st.set_page_config(
 ruta_proyecto = Path(__file__).resolve().parent
 ruta_env = ruta_proyecto / ".env"
 load_dotenv(ruta_env)
-DATABASE_URL = os.getenv("DATABASE_URL")
+try:
+    DATABASE_URL = st.secrets["DATABASE_URL"]
+except KeyError:
+    DATABASE_URL = os.getenv("DATABASE_URL")
 
 #Si no existe el URL de Neon para la BD
 if not DATABASE_URL:
