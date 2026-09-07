@@ -205,7 +205,7 @@ ultima_actualizacion = (
 st.title("🌦️ Dashboard de Análisis Climatológico")
 
 #Descripción de la app
-st.caption("Análisis de datos meteorológicos recopilados automáticamente mediante un pipeline ETL desarrollado con Python, API de Open-Meteo y SQLite."
+st.caption("Análisis de datos meteorológicos recopilados automáticamente mediante un pipeline ETL desarrollado con Python, API de Open-Meteo y PostgreSQL."
 )
 
 st.caption(
